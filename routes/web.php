@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/chofer', 'HomeController@crearChofer')->name('chofer');
+
+Route::get('/auto', 'HomeController@crearAuto')->name('auto');
