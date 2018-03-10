@@ -66,4 +66,9 @@
         </div>
     </div>
 </div>
+<script>
+window.onload = function() {
+   document.getElementById("nombreUsuario").focus();
+}
+</script>
 @endsection

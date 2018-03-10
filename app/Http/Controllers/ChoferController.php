@@ -8,6 +8,17 @@ use App\Chofer;
 
 class ChoferController extends Controller
 {
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     protected function validator(array $data)
     {
         return Validator::make($data, [

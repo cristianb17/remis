@@ -27,7 +27,7 @@
 		<div class="col-md-6">
 			<label for="example-search-input" class="col-5 col-form-label"><strong>Documento</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="number" name="documento">
+				<input class="form-control" type="number" required name="documento">
 			</div>
 		</div>
 		<div class="col-md-6">

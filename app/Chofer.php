@@ -3,12 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Chofer extends Model {}
 {
-     $fillable = [
+    $fillable = [
          'nombre', 'apellido','documento','domicilio', 'localidad','cp', 'telefono',
          'fechaNacimiento', 'celular','vencimientoRegistro', 'ingresoAgencia','previsionMulta', 'saldoCuentaCorriente'
     ];

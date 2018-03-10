@@ -22,3 +22,4 @@ Route::get('/chofer', 'ChoferController@crearChofer')->name('chofer');
 Route::post('/guardarChofer', 'ChoferController@guardarChofer')->name('guardarChofer');
 
 Route::get('/auto', 'AutoController@crearAuto')->name('auto');
+Route::post('/auto', 'AutoController@guardarAuto')->name('guardarAuto');

@@ -15,19 +15,19 @@ class CreateChofersTable extends Migration
     {
         Schema::create('chofers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('apellido');
+            $table->string('nombre')->nullable();;
+            $table->string('apellido')->nullable();;
             $table->integer('documento')->unique();
-            $table->string('domicilio');
-            $table->string('localidad');
-            $table->string('cp');
-            $table->string('telefono');
-            $table->date('fechaNacimiento');
-            $table->string('celular');
-            $table->date('vencimientoRegistro');
-            $table->date('ingresoAgencia');
-            $table->string('previsionMulta');
-            $table->string('saldoCuentaCorriente');
+            $table->string('domicilio')->nullable();;
+            $table->string('localidad')->nullable();;
+            $table->string('cp')->nullable();;
+            $table->string('telefono')->nullable();;
+            $table->date('fechaNacimiento')->nullable();;
+            $table->string('celular')->nullable();;
+            $table->date('vencimientoRegistro')->nullable();;
+            $table->date('ingresoAgencia')->nullable();;
+            $table->string('previsionMulta')->nullable();;
+            $table->string('saldoCuentaCorriente')->nullable();;
             $table->rememberToken();
             $table->timestamps();
         });
