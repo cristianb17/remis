@@ -46,6 +46,17 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Privilegios</label>
+
+                            <div class="col-md-6">
+                          		 <select name="privilegio" class="form-control">
+									<option value="1">ADMIN</option>
+									<option value="0">USUARIO DEL SISTEMA</option>
+								</select>
+                          	  </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -27,7 +27,7 @@ class ChoferController extends Controller
 
     public function crearChofer()
     {
-        return view('chofer');
+        return view('choferes/chofer');
     }
     
     public function guardarChofer(Request $request)

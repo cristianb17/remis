@@ -19,7 +19,7 @@ class AutoController extends Controller
     
     public function crearAuto()
     {
-        return view('auto');
+        return view('autos/auto');
     }
 
     public function guardarAuto(Request $request)
