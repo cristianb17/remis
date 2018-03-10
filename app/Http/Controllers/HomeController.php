@@ -26,13 +26,4 @@ class HomeController extends Controller
         return view('home');
     }
     
-    public function crearChofer()
-    {
-        return view('chofer');
-    }
-    
-    public function crearAuto()
-    {
-        return view('auto');
-    }
 }
