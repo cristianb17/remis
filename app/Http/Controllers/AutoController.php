@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Auto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class AutoController extends Controller
 {
@@ -20,6 +21,36 @@ class AutoController extends Controller
     public function crearAuto()
     {
         return view('autos/auto');
+    }
+    
+    public function listarAutos()
+    {
+        $autos = Auto::all();
+        return View::make('autos/listarAutos')->with('autos', $autos);
+        
+    }
+    
+    public function verAuto(Request $request)
+    {
+        $autos = Auto::find($request['id']);
+        return View::make('autos/ver')->with('auto', $autos);
+        
+    }
+    
+    public function editarAuto(Request $request)
+    {
+        $auto = Auto::find($request['id']);
+        return View::make('autos/editar')->with('auto', $auto);
+        
+    }
+    
+    public function eliminarAuto(Request $request)
+    {
+        $auto = Auto::find($request['id']);
+        $auto->delete();
+        $autos = Auto::all();
+        return View::make('autos/listarAutos')->with('autos', $autos);
+       
     }
 
     public function guardarAuto(Request $request)

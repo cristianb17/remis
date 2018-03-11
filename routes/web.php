@@ -18,8 +18,20 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/chofer', 'ChoferController@crearChofer')->name('chofer');
+//Choferes
+Route::get('/listarChoferes', 'ChoferController@listarChoferes')->name('listarChoferes');
+Route::get('/crearChoferes', 'ChoferController@crearChofer')->name('crearChofer');
 Route::post('/guardarChofer', 'ChoferController@guardarChofer')->name('guardarChofer');
 
-Route::get('/auto', 'AutoController@crearAuto')->name('auto');
-Route::post('/auto', 'AutoController@guardarAuto')->name('guardarAuto');
+
+//Autos
+Route::get('/auto', 'AutoController@crearAuto')->name('crearAuto');
+Route::post('/guardar', 'AutoController@guardarAuto')->name('guardarAuto');
+Route::get('/listarAutos', 'AutoController@listarAutos')->name('listarAutos');
+Route::get('/ver', 'AutoController@verAuto')->name('ver');
+Route::get('/eliminar', 'AutoController@eliminarAuto')->name('eliminar');
+Route::get('/editar', 'AutoController@editarAuto')->name('editar');
+
+//Clientes
+Route::get('/clientes', 'ClienteController@listarClientes')->name('cliente');
+

@@ -26,9 +26,9 @@
                             Menu Principal
                      </button>
                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ route('chofer') }}">Listar Clientes</a>
-                            <a class="dropdown-item" href="{{ route('chofer') }}">Listar Choferes</a>
-                            <a class="dropdown-item" href="{{ route('auto') }}">Listar Autos</a>
+                            <a class="dropdown-item" href="{{ route('cliente') }}">Listar Clientes</a>
+                            <a class="dropdown-item" href="{{ route('listarChoferes') }}">Listar Choferes</a>
+                            <a class="dropdown-item" href="{{ route('listarAutos') }}">Listar Autos</a>
                       </div>
            	 	</div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 use App\Chofer;
 
 class ChoferController extends Controller
@@ -25,9 +26,17 @@ class ChoferController extends Controller
         ]);
     }
 
+    public function listarChoferes()
+    {
+        $choferes = Chofer::all();
+        return View::make('choferes/listarChoferes')->with('choferes', $choferes);
+
+    }
+    
     public function crearChofer()
     {
         return view('choferes/chofer');
+        
     }
     
     public function guardarChofer(Request $request)
@@ -48,7 +57,7 @@ class ChoferController extends Controller
         $chofer->saldoCuentaCorriente= $request['saldoCuentaCorriente'];
         
         $chofer->save();
-        return view('home');
-        
+        $choferes = Chofer::all();
+        return View::make('choferes/listarChoferes')->with('choferes', $choferes);
     }
 }
