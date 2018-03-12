@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChofersTable extends Migration
+class CreateChoferTable extends Migration
 {
     /**
      * Run the migrations.
@@ -40,6 +40,6 @@ class CreateChofersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chofer');
+        Schema::dropIfExists('chofers');
     }
 }

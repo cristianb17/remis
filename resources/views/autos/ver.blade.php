@@ -253,7 +253,7 @@
 	</br>
 	<div class="form-group">
 		<div class="col-md-8 offset-md-5">
-			<button type="submit" class="btn btn-primary btn-lg">Regresar</button>
+			<button type="submit" class="btn btn-primary btn-lg">Volver</button>
 		</div>
 	</div>
 </form>

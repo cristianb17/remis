@@ -33,6 +33,13 @@ class ChoferController extends Controller
 
     }
     
+    public function editarChofer(Request $request)
+    {
+        $chofer = Chofer::find($request['id']);
+        return View::make('choferes/editar')->with('chofer', $chofer);
+        
+    }
+    
     public function crearChofer()
     {
         return view('choferes/chofer');
@@ -42,6 +49,45 @@ class ChoferController extends Controller
     public function guardarChofer(Request $request)
     {
         $chofer = new Chofer();
+        $chofer->nombre = $request['nombre'];
+        $chofer->apellido= $request['apellido'];
+        $chofer->documento= $request['documento'];
+        $chofer->domicilio= $request['domicilio'];
+        $chofer->localidad= $request['localidad'];
+        $chofer->cp= $request['cp'];
+        $chofer->telefono= $request['telefono'];
+        $chofer->fechaNacimiento = $request['fechaNacimiento'];
+        $chofer->celular= $request['celular'];
+        $chofer->vencimientoRegistro= $request['vencimientoRegistro'];
+        $chofer->ingresoAgencia= $request['ingresoAgencia'];
+        $chofer->previsionMulta= $request['previsionMulta'];
+        $chofer->saldoCuentaCorriente= $request['saldoCuentaCorriente'];
+        
+        $chofer->save();
+        $choferes = Chofer::all();
+        return View::make('choferes/listarChoferes')->with('choferes', $choferes);
+    }
+    
+    public function eliminarChofer(Request $request)
+    {
+        $chofer = Chofer::find($request['id']);
+        $chofer->delete();
+        $choferes = Chofer::all();
+        return View::make('choferes/listarChoferes')->with('choferes', $choferes);
+        
+    }
+    
+    public function verChofer(Request $request)
+    {
+        $chofer = Chofer::find($request['id']);
+        return View::make('choferes/ver')->with('chofer', $chofer);
+        
+    }
+    
+    
+    public function actualizarChofer(Request $request)
+    {
+        $chofer = Chofer::find($request['id']);
         $chofer->nombre = $request['nombre'];
         $chofer->apellido= $request['apellido'];
         $chofer->documento= $request['documento'];

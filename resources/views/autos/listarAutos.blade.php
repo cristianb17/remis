@@ -32,6 +32,7 @@
 			<td><a href="{{ route('editar', ['id' => $auto->id]) }}" class="btn btn-primary">Editar</a></td>
 			<td><a href="{{ route('eliminar', ['id' => $auto->id]) }}" class="btn btn-primary">Eliminar</a></td>
 		</tr>
+		
         @endforeach
       </table>
   

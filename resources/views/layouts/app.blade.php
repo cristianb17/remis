@@ -15,8 +15,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app" style="background-color: #C1C3C3">
+<body style="background-color: #C1C3C3">
+    <div id="app" >
         <nav class="navbar navbar-dark bg-dark navbar-expand-md">
             <div class="container">
            @guest
@@ -26,7 +26,7 @@
                             Menu Principal
                      </button>
                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ route('cliente') }}">Listar Clientes</a>
+                            <a class="dropdown-item" href="{{ route('listarClientes') }}">Listar Clientes</a>
                             <a class="dropdown-item" href="{{ route('listarChoferes') }}">Listar Choferes</a>
                             <a class="dropdown-item" href="{{ route('listarAutos') }}">Listar Autos</a>
                       </div>
