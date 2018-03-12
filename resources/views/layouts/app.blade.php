@@ -31,6 +31,7 @@
                             <a class="dropdown-item" href="{{ route('listarAutos') }}">Listar Autos</a>
                       </div>
            	 	</div>
+                   <a class="btn btn-success  offset-1" href="{{ route('home') }}" role="button">Pagina Principal</a>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
