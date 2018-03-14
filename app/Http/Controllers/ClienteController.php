@@ -73,6 +73,7 @@ class ClienteController extends Controller
         $cliente->telefono4= $request['tel4'];
         $cliente->telefono5= $request['tel5'];
         $cliente->tipo_id= $request['tipoCliente'];
+        
         $cliente->save();
         $clientes = Clientes::all();
         return View::make('clientes/listarClientes')->with('clientes', $clientes);

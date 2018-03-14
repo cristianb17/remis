@@ -29,6 +29,7 @@
                             <a class="dropdown-item" href="{{ route('listarClientes') }}">Listar Clientes</a>
                             <a class="dropdown-item" href="{{ route('listarChoferes') }}">Listar Choferes</a>
                             <a class="dropdown-item" href="{{ route('listarAutos') }}">Listar Autos</a>
+                            <a class="dropdown-item" href="{{ route('ingresarReserva') }}">Ingresar Reserva</a>                 
                       </div>
            	 	</div>
                    <a class="btn btn-success  offset-1" href="{{ route('home') }}" role="button">Pagina Principal</a>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Reserva;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $reservas = Reserva::all();
+        return View::make('home')->with('reservas', $reservas);
+    }
+    
+    public function listarReservas()
+    {
+        $reservas = Reserva::all();
+        return View::make('home')->with('reservas', $reservas);
     }
     
 }

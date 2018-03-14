@@ -35,7 +35,6 @@ Route::post('/guardar', 'AutoController@guardarAuto')->name('guardarAuto');
 Route::get('/listarAutos', 'AutoController@listarAutos')->name('listarAutos');
 Route::get('/ver', 'AutoController@verAuto')->name('ver');
 Route::get('/eliminar', 'AutoController@eliminarAuto')->name('eliminar');
-
 Route::get('/editar', 'AutoController@editarAuto')->name('editar');
 Route::post('/listarAutos', 'AutoController@actualizarAuto')->name('actualizar');
 
@@ -49,5 +48,11 @@ Route::get('/eliminarCliente', 'ClienteController@eliminarCliente')->name('elimi
 Route::post('/actualizarCliente', 'ClienteController@actualizarCliente')->name('actualizarCliente');
 Route::get('/editarCliente', 'ClienteController@editarCliente')->name('editarCliente');
 
-
+//Reservas
+Route::get('/ingresarReserva', 'GestionReservaController@ingresarReserva')->name('ingresarReserva');
+Route::post('/crearReserva', 'GestionReservaController@crearReserva')->name('crearReserva');
+Route::get('/ver', 'GestionReservaController@verReserva')->name('ver');
+Route::get('/eliminar', 'GestionReservaController@eliminarAuto')->name('eliminar');
+Route::get('/editar', 'AutoController@editarAuto')->name('editar');
+Route::post('/listarReservas', 'GestionReservaController@listarReservas')->name('listarReservas');
 
