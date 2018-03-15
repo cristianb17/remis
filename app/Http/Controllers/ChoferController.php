@@ -85,6 +85,19 @@ class ChoferController extends Controller
         
     }
     
+    public function buscarChofer(Request $request)
+    {
+        if($request['dato'] == ''){
+            $choferes = Chofer::all();
+            return View::make('choferes/listarChoferes')->with('choferes', $choferes);
+        }
+        $choferes = Chofer::where('apellido', $request['dato'])->orWhere('documento', 'like', $request['dato'])
+        ->orWhere('nombre', 'like', $request['dato'])->get();
+        
+        return View::make('choferes/listarChoferes')->with('choferes', $choferes);
+        
+    }
+    
     
     public function actualizarChofer(Request $request)
     {

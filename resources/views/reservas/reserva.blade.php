@@ -13,13 +13,13 @@
 		<div class="col-md-6">
 			<label for="example-text-input" class="col-5 col-form-label"><strong>Dia y Hora del viajes</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" data-date-format="" name="diaHoraViaje">
+				<input class="form-control" type="datetime-local" name="diaHoraViaje">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<label for="example-text-input" class="col-5 col-form-label"><strong>Aviso al Despachador</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="avisoDespachador">
+				<input class="form-control" type="datetime-local" name="avisoDespachador">
 			</div>
 		</div>
 	</div>
@@ -87,13 +87,13 @@
 
 			<label for="example-url-input" class="col-5 col-form-label"><strong>Desde</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="desdeEstimado">
+				<input class="form-control" type="text" name="desdeEstimado">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<label for="example-tel-input" class="col-5 col-form-label"><strong>Hasta</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="hastaEstimado">
+				<input class="form-control" type="text" name="hastaEstimado">
 			</div>
 		</div>
 	</div>
@@ -165,13 +165,13 @@
 
 			<label for="example-url-input" class="col-5 col-form-label"><strong>Desde</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="desdeEstimado">
+				<input class="form-control" type="datetime-local" name="desdeEstimado">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<label for="example-tel-input" class="col-5 col-form-label"><strong>Hasta</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="hastaEstimado">
+				<input class="form-control" type="datetime-local" name="hastaEstimado">
 			</div>
 		</div>
 	</div>
@@ -192,7 +192,7 @@
 </div>
 </br>
 	<div class="form-group row mb-0">
-		<div class="col-md-8 offset-md-4">
+		<div class="col-md-8 offset-md-5">
 			<button type="submit" class="btn btn-primary btn-lg">Ingresar Reserva</button>
 		</div>
 	</div>

@@ -125,4 +125,16 @@ class GestionReservaController extends Controller
         return View::make('reservas.ver')->with('reserva', $reserva);
         
     }
+    
+    public function buscarReserva(Request $request)
+    {
+        
+        if($request['dato'] == ''){
+            $reservas = Reserva::all();
+            return View::make('home')->with('reservas', $reservas);
+        }
+        $reservas = Reserva::where('desde', $request['dato'])->orWhere('hasta', 'like', $request['dato'])->get();
+        return View::make('home')->with('reservas', $reservas);
+        
+    }
 }

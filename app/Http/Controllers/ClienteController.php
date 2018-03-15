@@ -106,4 +106,18 @@ class ClienteController extends Controller
         $clientes = Clientes::all();
         return View::make('clientes/listarClientes')->with('clientes', $clientes);
     }
+    
+    public function buscarCliente(Request $request)
+    {
+        
+        if($request['dato'] == ''){
+            $clientes = Clientes::all();
+            return View::make('clientes/listarClientes')->with('clientes', $clientes);
+        }
+        $clientes = Clientes::where('apellido', $request['dato'])->orWhere('documento', 'like', $request['dato'])
+        ->orWhere('nombre', 'like', $request['dato'])->get();
+        return View::make('clientes/listarClientes')->with('clientes', $clientes);
+        
+    }
+    
 }

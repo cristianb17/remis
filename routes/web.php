@@ -29,6 +29,8 @@ Route::get('/verChofer', 'ChoferController@verChofer')->name('verChofer');
 Route::post('/listarChoferes', 'ChoferController@actualizarChofer')->name('actualizarChofer');
 Route::get('/editarChofer', 'ChoferController@editarChofer')->name('editarChofer');
 Route::get('/activarChofer', 'ChoferController@activarChofer')->name('activarChofer');
+Route::get('/buscarChofer', 'ChoferController@buscarChofer')->name('buscarChofer');
+
 
 //Autos
 Route::get('/auto', 'AutoController@crearAuto')->name('crearAuto');
@@ -38,6 +40,7 @@ Route::get('/verAuto', 'AutoController@verAuto')->name('verAuto');
 Route::get('/eliminarAuto', 'AutoController@eliminarAuto')->name('eliminarAuto');
 Route::get('/editarAuto', 'AutoController@editarAuto')->name('editarAuto');
 Route::post('/listarAutos', 'AutoController@actualizarAuto')->name('actualizarAuto');
+Route::get('/buscarAuto', 'AutoController@buscarAuto')->name('buscarAuto');
 
 
 //Clientes
@@ -48,6 +51,7 @@ Route::post('/guardarCliente', 'ClienteController@guardarCliente')->name('guarda
 Route::get('/eliminarCliente', 'ClienteController@eliminarCliente')->name('eliminarCliente');
 Route::post('/actualizarCliente', 'ClienteController@actualizarCliente')->name('actualizarCliente');
 Route::get('/editarCliente', 'ClienteController@editarCliente')->name('editarCliente');
+Route::get('/buscarCliente', 'ClienteController@buscarCliente')->name('buscarCliente');
 
 //Reservas
 Route::get('/ingresarReserva', 'GestionReservaController@ingresarReserva')->name('ingresarReserva');
@@ -57,4 +61,9 @@ Route::get('/eliminar', 'GestionReservaController@eliminarReserva')->name('elimi
 Route::get('/editarReserva', 'GestionReservaController@editarReserva')->name('editarReserva');
 Route::post('/listarReservas', 'GestionReservaController@listarReservas')->name('listarReservas');
 Route::post('/actualizarReserva', 'GestionReservaController@actualizarReserva')->name('actualizarReserva');
+Route::get('/buscarReserva', 'GestionReservaController@buscarReserva')->name('buscarReserva');
+
+//Liquidacion
+Route::get('/liquidarChofer', 'LiquidacionController@verLiquidacion')->name('liquidarChofer');
+
 

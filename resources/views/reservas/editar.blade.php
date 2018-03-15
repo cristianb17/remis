@@ -15,13 +15,13 @@
 		<div class="col-md-6">
 			<label for="example-text-input" class="col-5 col-form-label"><strong>Dia y Hora del viajes</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="diaHoraViaje"   value="{{$reserva->diaHoraViaje}}">
+				<input class="form-control" type="datetime-local" name="diaHoraViaje"   value="{{$reserva->diaHoraViaje}}">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<label for="example-text-input" class="col-5 col-form-label"><strong>Aviso al Despachador</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="avisoDespachador"  value="{{$reserva->avisoDespachador}}">
+				<input class="form-control" type="datetime-local" name="avisoDespachador"  value="{{$reserva->avisoDespachador}}">
 			</div>
 		</div>
 	</div>
@@ -30,13 +30,13 @@
 		<div class="col-md-6">
 			<label for="example-search-input" class="col-5 col-form-label"><strong>Desde</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="desde"  value="{{$reserva->desde}}">
+				<input class="form-control" type="text" name="desde"  value="{{$reserva->desde}}">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<label for="example-email-input" class="col-5 col-form-label"><strong>Hasta</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="hasta"  value="{{$reserva->hasta}}">
+				<input class="form-control" type="text" name="hasta"  value="{{$reserva->hasta}}">
 			</div>
 		</div>
 	</div>
@@ -89,13 +89,13 @@
 
 			<label for="example-url-input" class="col-5 col-form-label"><strong>Desde</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="desdeEstimado"  value="{{$reserva->desdeEstimado}}">
+				<input class="form-control" type="text" name="desdeEstimado"  value="{{$reserva->desdeEstimado}}">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<label for="example-tel-input" class="col-5 col-form-label" ><strong>Hasta</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="hastaEstimado"  value="{{$reserva->hastaEstimado}}">
+				<input class="form-control" type="text" name="hastaEstimado"  value="{{$reserva->hastaEstimado}}">
 			</div>
 		</div>
 	</div>
@@ -181,13 +181,13 @@
 
 			<label for="example-url-input" class="col-5 col-form-label"><strong>Desde</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="desdeEstimado"  value="{{$reserva->desdeEstimado}}">
+				<input class="form-control" type="text" name="desdeEstimado"  value="{{$reserva->desdeEstimado}}">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<label for="example-tel-input" class="col-5 col-form-label"><strong>Hasta</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="date" name="hastaEstimado"  value="{{$reserva->hastaEstimado}}">
+				<input class="form-control" type="text" name="hastaEstimado"  value="{{$reserva->hastaEstimado}}">
 			</div>
 		</div>
 	</div>
@@ -208,7 +208,7 @@
 </div>
 </br>
 	<div class="form-group row mb-0">
-		<div class="col-md-8 offset-md-4">
+		<div class="col-md-8 offset-md-5">
 			<button type="submit" class="btn btn-primary btn-lg">Actualizar</button>
 		</div>
 	</div>

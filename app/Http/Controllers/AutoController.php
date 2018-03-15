@@ -131,4 +131,17 @@ class AutoController extends Controller
         return View::make('autos/listarAutos')->with('autos', $autos);
     }
     
+    public function buscarAuto(Request $request)
+    {
+        
+        if($request['dato'] == ''){
+            $autos = Auto::all();
+            return View::make('autos/listarAutos')->with('autos', $autos);
+        }
+        $autos = Auto::where('marca', $request['dato'])->orWhere('modelo', 'like', $request['dato'])
+        ->orWhere('patente', 'like', $request['dato'])->get();
+        return View::make('autos/listarAutos')->with('autos', $autos);
+        
+    }
+    
 }

@@ -9,6 +9,16 @@
 	 <p>
    		 <a href="{{ route('ingresarReserva') }}" class="btn btn-primary">Ingresar una nueva Reserva</a>
   	</p>
+  	
+  		<p></p>
+	<form method="get" action="{{ route('buscarReserva') }}">
+        <div class="input-group">
+          <input type="text" class="form-control col-2" name="dato">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Buscar</button>
+          </span>
+        </div>
+    </form>
 	
      <table class="table table-striped">
         <tr>
@@ -23,8 +33,8 @@
 		</tr>
         @foreach ($reservas as $reserva)
         <tr>
-			<td>{{ $reserva->diaHoraViaje }}</td>
-			<td>{{ $reserva->avisoDespachador }}</td>
+			<td><input class="form-control" type="datetime-local" value="{{ $reserva->diaHoraViaje }}" disabled></td>
+			<td><input  class="form-control" type="datetime-local" value="{{ $reserva->avisoDespachador }}" disabled></td>
 			<td>{{ $reserva->desde }}</td>
 			<td>{{ $reserva->hasta }}</td>
 			<td>{{ $reserva->numero }}</td>

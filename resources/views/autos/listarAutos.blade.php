@@ -9,6 +9,16 @@
 	 <p>
    		 <a href="{{ route('crearAuto') }}" class="btn btn-primary">Ingresar un nuevo Auto</a>
   	</p>
+  	
+  			<p></p>
+	<form method="get" action="{{ route('buscarAuto') }}">
+        <div class="input-group">
+          <input type="text" class="form-control col-2" name="dato">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Buscar</button>
+          </span>
+        </div>
+    </form>
 	
      <table class="table table-striped">
         <tr>
