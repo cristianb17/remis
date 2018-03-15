@@ -14,6 +14,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url('datepicker/css/datepicker.css') }}">
+    
 </head>
 <body style="background-color: #C1C3C3">
     <div id="app" >

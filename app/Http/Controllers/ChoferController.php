@@ -62,6 +62,7 @@ class ChoferController extends Controller
         $chofer->ingresoAgencia= $request['ingresoAgencia'];
         $chofer->previsionMulta= $request['previsionMulta'];
         $chofer->saldoCuentaCorriente= $request['saldoCuentaCorriente'];
+        $chofer->estado= '0';
         
         $chofer->save();
         $choferes = Chofer::all();
@@ -102,6 +103,19 @@ class ChoferController extends Controller
         $chofer->previsionMulta= $request['previsionMulta'];
         $chofer->saldoCuentaCorriente= $request['saldoCuentaCorriente'];
         
+        $chofer->save();
+        $choferes = Chofer::all();
+        return View::make('choferes/listarChoferes')->with('choferes', $choferes);
+    }
+    
+    public function activarChofer(Request $request)
+    {
+        $chofer = Chofer::find($request['id']);
+        if($chofer->estado == 0)
+            $chofer->estado = '1';
+        else 
+            $chofer->estado = '0';
+            
         $chofer->save();
         $choferes = Chofer::all();
         return View::make('choferes/listarChoferes')->with('choferes', $choferes);

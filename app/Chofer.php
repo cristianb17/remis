@@ -8,7 +8,7 @@ class Chofer extends Model {}
 {
     $fillable = [
          'nombre', 'apellido','documento','domicilio', 'localidad','cp', 'telefono',
-         'fechaNacimiento', 'celular','vencimientoRegistro', 'ingresoAgencia','previsionMulta', 'saldoCuentaCorriente'
+         'fechaNacimiento', 'celular','vencimientoRegistro', 'ingresoAgencia','previsionMulta', 'saldoCuentaCorriente', 'estado'
     ];
 
 }

@@ -7,7 +7,7 @@
 			Gestion de Coches
 		</h1>
 	</div>
- <form method="POST" action="{{ route('actualizar') }}">
+ <form method="POST" action="{{ route('actualizarAuto') }}">
                         @csrf
 	<div style="border-style: solid; font-size: 16px" >
 		<input class="form-control"  type="hidden" name="id" value="{{$auto->id}}">

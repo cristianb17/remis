@@ -28,9 +28,9 @@
 			<td>{{ $reserva->desde }}</td>
 			<td>{{ $reserva->hasta }}</td>
 			<td>{{ $reserva->numero }}</td>
-			<td><a href="{{route('ver', ['id' => $reserva->id])}}" class="btn btn-primary">Ver</a></td>
-			<td><a href="{{ route('editar', ['id' => $reserva->id]) }}" class="btn btn-primary">Editar</a></td>
-			<td><a href="{{ route('eliminar', ['id' => $reserva->id]) }}" class="btn btn-primary">Eliminar</a></td>
+			<td><a href="{{route('verReserva', ['id' => $reserva->id])}}" class="btn btn-primary">Ver</a></td>
+			<td><a href="{{ route('editarReserva', ['id' => $reserva->id]) }}" class="btn btn-primary">Editar</a></td>
+			<td><a href="{{ route('eliminarReserva', ['id' => $reserva->id]) }}" class="btn btn-primary">Eliminar</a></td>
 		</tr>
 		
         @endforeach

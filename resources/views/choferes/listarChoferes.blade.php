@@ -20,6 +20,9 @@
 			<th>Ver</th>
 			<th>Editar</th>
 			<th>Eliminar</th>
+			<th>Estado</th>
+			<th>Activar/Desactivar</th>
+			<th>Liquidacion</th>	
 		</tr>
         @foreach ($choferes as $chofer)
         <tr>
@@ -31,6 +34,18 @@
 			<td><a href="{{route('verChofer', ['id' => $chofer->id])}}" class="btn btn-primary">Ver</a></td>
 			<td><a href="{{ route('editarChofer', ['id' => $chofer->id]) }}" class="btn btn-primary">Editar</a></td>
 			<td><a href="{{ route('eliminarChofer', ['id' => $chofer->id]) }}" class="btn btn-primary">Eliminar</a></td>
+				@if($chofer->estado == 0)
+					<td>Inactivo</td>
+					<td><a href="{{ route('activarChofer', ['id' => $chofer->id]) }}" class="btn btn-primary">Activar</a></td>	
+    			@endif
+    				@if($chofer->estado == 1)
+    				<td>Trabajando</td>
+					<td><a href="{{ route('activarChofer', ['id' => $chofer->id]) }}" class="btn btn-primary">Desactivar</a></td>	
+    				<td><a href="{{ route('eliminarChofer', ['id' => $chofer->id]) }}" class="btn btn-danger">Liquidar</a></td>
+    			@endif
+    			@if($chofer->estado == 1)
+    			@endif
+			
 		</tr>
 		
         @endforeach

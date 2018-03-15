@@ -28,9 +28,9 @@
 			<td>{{ $auto->patente }}</td>
 			<td>{{ $auto->chofer }}</td>
 			<td>{{ $auto->propietario }}</td>
-			<td><a href="{{route('ver', ['id' => $auto->id])}}" class="btn btn-primary">Ver</a></td>
-			<td><a href="{{ route('editar', ['id' => $auto->id]) }}" class="btn btn-primary">Editar</a></td>
-			<td><a href="{{ route('eliminar', ['id' => $auto->id]) }}" class="btn btn-primary">Eliminar</a></td>
+			<td><a href="{{route('verAuto', ['id' => $auto->id])}}" class="btn btn-primary">Ver</a></td>
+			<td><a href="{{ route('editarAuto', ['id' => $auto->id]) }}" class="btn btn-primary">Editar</a></td>
+			<td><a href="{{ route('eliminarAuto', ['id' => $auto->id]) }}" class="btn btn-primary">Eliminar</a></td>
 		</tr>
 		
         @endforeach
@@ -38,11 +38,4 @@
   
 
 </div>
-
-
-<script>
-window.onload = function() {
-   document.getElementById("nombre").focus();
-}
-</script>
 @endsection

@@ -27,7 +27,8 @@ class CreateChoferTable extends Migration
             $table->date('vencimientoRegistro')->nullable();;
             $table->date('ingresoAgencia')->nullable();;
             $table->string('previsionMulta')->nullable();;
-            $table->string('saldoCuentaCorriente')->nullable();;
+            $table->string('saldoCuentaCorriente')->nullable();
+            $table->string('estado')->nullable();;
             $table->rememberToken();
             $table->timestamps();
         });

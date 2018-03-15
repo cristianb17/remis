@@ -28,15 +28,16 @@ Route::get('/eliminarChofer', 'ChoferController@eliminarChofer')->name('eliminar
 Route::get('/verChofer', 'ChoferController@verChofer')->name('verChofer');
 Route::post('/listarChoferes', 'ChoferController@actualizarChofer')->name('actualizarChofer');
 Route::get('/editarChofer', 'ChoferController@editarChofer')->name('editarChofer');
+Route::get('/activarChofer', 'ChoferController@activarChofer')->name('activarChofer');
 
 //Autos
 Route::get('/auto', 'AutoController@crearAuto')->name('crearAuto');
 Route::post('/guardar', 'AutoController@guardarAuto')->name('guardarAuto');
 Route::get('/listarAutos', 'AutoController@listarAutos')->name('listarAutos');
-Route::get('/ver', 'AutoController@verAuto')->name('ver');
-Route::get('/eliminar', 'AutoController@eliminarAuto')->name('eliminar');
-Route::get('/editar', 'AutoController@editarAuto')->name('editar');
-Route::post('/listarAutos', 'AutoController@actualizarAuto')->name('actualizar');
+Route::get('/verAuto', 'AutoController@verAuto')->name('verAuto');
+Route::get('/eliminarAuto', 'AutoController@eliminarAuto')->name('eliminarAuto');
+Route::get('/editarAuto', 'AutoController@editarAuto')->name('editarAuto');
+Route::post('/listarAutos', 'AutoController@actualizarAuto')->name('actualizarAuto');
 
 
 //Clientes
@@ -51,8 +52,9 @@ Route::get('/editarCliente', 'ClienteController@editarCliente')->name('editarCli
 //Reservas
 Route::get('/ingresarReserva', 'GestionReservaController@ingresarReserva')->name('ingresarReserva');
 Route::post('/crearReserva', 'GestionReservaController@crearReserva')->name('crearReserva');
-Route::get('/ver', 'GestionReservaController@verReserva')->name('ver');
-Route::get('/eliminar', 'GestionReservaController@eliminarAuto')->name('eliminar');
-Route::get('/editar', 'AutoController@editarAuto')->name('editar');
+Route::get('/ver', 'GestionReservaController@verReserva')->name('verReserva');
+Route::get('/eliminar', 'GestionReservaController@eliminarReserva')->name('eliminarReserva');
+Route::get('/editarReserva', 'GestionReservaController@editarReserva')->name('editarReserva');
 Route::post('/listarReservas', 'GestionReservaController@listarReservas')->name('listarReservas');
+Route::post('/actualizarReserva', 'GestionReservaController@actualizarReserva')->name('actualizarReserva');
 
