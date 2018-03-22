@@ -22,6 +22,7 @@
 	
      <table class="table table-striped">
         <tr>
+        	<th>Numero</th>
 			<th>Marca</th>
 			<th>Modelo</th>
 			<th>Patente</th>
@@ -32,6 +33,7 @@
 		</tr>
         @foreach ($autos as $auto)
         <tr>
+        	<td>{{ $auto->id }}</td>
 			<td>{{ $auto->marca }}</td>
 			<td>{{ $auto->modelo }}</td>
 			<td>{{ $auto->patente }}</td>

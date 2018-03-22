@@ -10,12 +10,12 @@
  <form method="POST" action="{{ route('actualizarAuto') }}">
                         @csrf
 	<div style="border-style: solid; font-size: 16px" >
-		<input class="form-control"  type="hidden" name="id" value="{{$auto->id}}">
+		<input class="form-control"  type="hidden" name="idAnt" value="{{$auto->id}}">
     	<div class="form-group row">
     		<div class="col-md-4">
     			<label for="example-text-input" class="col-3 col-form-label">Coche</label>
     			<div class="col-8">
-    				<input class="form-control"  type="text" name="coche" value="{{$auto->coche}}">
+    				<input class="form-control"  type="text" name="id" value="{{$auto->id}}">
     			</div>
     		</div>
     		<div class="col-md-4">

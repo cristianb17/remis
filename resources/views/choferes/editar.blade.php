@@ -131,7 +131,7 @@
         				<select class="form-control" name="auto">
     						@foreach($autos as $auto)
     							
-    						<option value="{{ $auto->id }}" {{$chofer->auto_id == $auto->id ? 'selected' : '' }} > {{ $auto->coche }}</option> 
+    						<option value="{{ $auto->id }}" {{$chofer->auto_id == $auto->id ? 'selected' : '' }} > {{ $auto->id }}</option> 
     						@endforeach
     
     					</select>

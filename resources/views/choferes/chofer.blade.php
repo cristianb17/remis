@@ -140,7 +140,7 @@
     				<div class="col-8">
         				<select class="form-control" name="auto">
     						@foreach($autos as $auto)
-    						<option value="{{ $auto->id }}"> {{ $auto->coche }}</option> 
+    						<option value="{{ $auto->id }}"> {{ $auto->id }}</option> 
     						@endforeach
     
     					</select>

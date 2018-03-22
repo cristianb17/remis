@@ -47,8 +47,16 @@ class AutoController extends Controller
     
     public function actualizarAuto(Request $request)
     {
-        $auto = Auto::find($request['id']);
-        $auto->coche = $request['coche'];
+        $chofer = Chofer::where('auto_id', $request['idAnt'])->first();
+        
+        if($chofer != null) {
+            $chofer->auto_id = null;
+            $chofer->save();
+        }
+        
+        $auto = Auto::find($request['idAnt']);
+        $auto->id = $request['id'];
+        $auto->chofer()->id = $request['id'];
         $auto->marca = $request['marca'];
         $auto->modelo = $request['modelo'];
         $auto->ano = $request['ano'];
@@ -99,7 +107,7 @@ class AutoController extends Controller
     public function guardarAuto(Request $request)
     {
         $auto = new Auto();
-        $auto->coche = $request['coche'];
+        $auto->id = $request['id'];
         $auto->marca = $request['marca'];
         $auto->modelo = $request['modelo'];
         $auto->ano = $request['ano'];

@@ -12,7 +12,7 @@ class Auto extends Model
     }
     
     public  $fillable = [
-        'coche', 'marca','modelo','ano', 'color','patente', 'chofer',
+        'id', 'marca','modelo','ano', 'color','patente', 'chofer',
         'propietario', 'domicilio','localidad', 'tel1','tel2', 'altaAgencia'
         , 'vencPoliza', 'vencGNC', 'vencPagoSeg', 'vencHabAuto', 'gasolero'
         , 'aire', 'odometro', 'radio', 'odometroDatosFac', 'radioDatosFact', 'celular'

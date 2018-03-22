@@ -14,8 +14,8 @@ class CreateAutosTable extends Migration
     public function up()
     {
         Schema::create('autos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('coche')->nullable();;
+            $table->integer('id')->unsigned();
+            $table->primary('id');
             $table->string('marca')->nullable();;
             $table->string('modelo')->nullable();;
             $table->string('ano')->nullable();;

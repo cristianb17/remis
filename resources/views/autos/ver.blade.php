@@ -14,7 +14,7 @@
     		<div class="col-md-4">
     			<label for="example-text-input" class="col-3 col-form-label">Coche</label>
     			<div class="col-8">
-    				<input class="form-control" disabled type="text" value="{{$auto->coche}}">
+    				<input class="form-control" disabled type="text" value="{{$auto->id}}">
     			</div>
     		</div>
     		<div class="col-md-4">
