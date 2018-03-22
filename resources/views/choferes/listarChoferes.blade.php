@@ -23,6 +23,7 @@
 			<th>Documento</th>
 			<th>Domicilio</th>
 			<th>Celular</th>
+			<th>Auto Asignado</th>
 			<th>Ver</th>
 			<th>Editar</th>
 			<th>Eliminar</th>
@@ -37,6 +38,7 @@
 			<td>{{ $chofer->documento }}</td>
 			<td>{{ $chofer->domicilio }}</td>
 			<td>{{ $chofer->celular }}</td>
+			<td>{{ $chofer->auto_id }}</td>
 			<td><a href="{{route('verChofer', ['id' => $chofer->id])}}" class="btn btn-primary">Ver</a></td>
 			<td><a href="{{ route('editarChofer', ['id' => $chofer->id]) }}" class="btn btn-primary">Editar</a></td>
 			<td><a href="{{ route('eliminarChofer', ['id' => $chofer->id]) }}" class="btn btn-primary">Eliminar</a></td>

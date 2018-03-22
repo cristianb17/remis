@@ -28,7 +28,7 @@
 		<div class="col-md-6">
 			<label for="example-search-input" class="col-5 col-form-label"><strong>Documento</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="number"  name="documento" value="{{$cliente->documento}}">
+				<input class="form-control" type="number"  name="documento" required value="{{$cliente->documento}}">
 			</div>
 		</div>
 		<div class="col-md-6">
@@ -144,7 +144,7 @@
 		</div>
 		
 		
-				<div class="col-md-6">
+		<div class="col-md-6">
 			<label for="example-date-input" class="col-5 col-form-label"><strong>Telefono 5</strong></label>
 			<div class="col-7">
 				<input class="form-control" type="tel" name="tel5"  value="{{$cliente->tel5}}">
@@ -153,17 +153,29 @@
 	
 	</div>
 	
+	
+		<div class="form-group row">
+	
+		<div class="col-md-6">
+			<label for="example-date-input" class="col-5 col-form-label"><strong>Telefono 4</strong></label>
+			<div class="col-7">
+				<input class="form-control" type="tel" name="tel4"  value="{{$cliente->tel4}}">
+			</div>
+		</div>
+	
+	</div>
 		<div class="form-group row">
 	
 		<div class="col-md-6">
 			<label class="col-4 col-form-label"><strong>Tipo Cliente</strong></label>
-			<div class="col-7">				
-				<select name="tipoCliente" class="form-control">
-                  <option {{ $cliente->tipo_id == 1 ? 'selected="selected"' : '' }} value="1">Cliente Normal</option>
-                  <option {{ $cliente->tipo_id == 2 ? 'selected="selected"' : '' }} value="2">Pool</option>
-                   <option {{ $cliente->tipo_id == 3 ? 'selected="selected"' : '' }} value="3">Empresa</option>
-                </select>
-             </div>
+				<div class="col-7">
+        				<select class="form-control" name="tipos" required>
+    						@foreach($tipos as $tipo)
+    								<option value="{{ $tipo->id }}" {{ $cliente->tipo_id == $tipo->id ? 'selected="selected"' : '' }}> {{ $tipo->descripcion }}</option> 
+    						@endforeach
+    
+    					</select>
+					</div>
 		</div>
 	
 	

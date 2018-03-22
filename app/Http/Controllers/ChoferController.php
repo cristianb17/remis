@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
+use Illuminate\Validation\Rule;
 use App\Chofer;
+use App\Auto;
 
 class ChoferController extends Controller
 {
@@ -35,19 +40,25 @@ class ChoferController extends Controller
     
     public function editarChofer(Request $request)
     {
+        $autos = Auto::all();
         $chofer = Chofer::find($request['id']);
-        return View::make('choferes/editar')->with('chofer', $chofer);
+        return View::make('choferes/editar')->with('chofer', $chofer)->with('autos', $autos);
         
     }
     
     public function crearChofer()
     {
-        return view('choferes/chofer');
+        $autos = Auto::all();
+        return View::make('choferes/chofer')->with('autos', $autos);
         
     }
     
     public function guardarChofer(Request $request)
-    {
+    {      
+        $validator  = $request->validate([
+            'documento'  => 'required|unique:chofers'
+        ]);
+            
         $chofer = new Chofer();
         $chofer->nombre = $request['nombre'];
         $chofer->apellido= $request['apellido'];
@@ -62,6 +73,8 @@ class ChoferController extends Controller
         $chofer->ingresoAgencia= $request['ingresoAgencia'];
         $chofer->previsionMulta= $request['previsionMulta'];
         $chofer->saldoCuentaCorriente= $request['saldoCuentaCorriente'];
+        $chofer->auto_id= $request['auto'];
+        
         $chofer->estado= '0';
         
         $chofer->save();
@@ -100,7 +113,11 @@ class ChoferController extends Controller
     
     
     public function actualizarChofer(Request $request)
-    {
+    {        
+        $validator  = $request->validate([
+            'documento' => 'unique:chofers,documento,'.$request->id
+        ]);
+        
         $chofer = Chofer::find($request['id']);
         $chofer->nombre = $request['nombre'];
         $chofer->apellido= $request['apellido'];
@@ -115,6 +132,7 @@ class ChoferController extends Controller
         $chofer->ingresoAgencia= $request['ingresoAgencia'];
         $chofer->previsionMulta= $request['previsionMulta'];
         $chofer->saldoCuentaCorriente= $request['saldoCuentaCorriente'];
+        $chofer->auto_id= $request['auto'];
         
         $chofer->save();
         $choferes = Chofer::all();

@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Auto extends Model
 {
+    public function chofer()
+    {
+        return $this->belongsTo('App\Chofer');
+    }
+    
     public  $fillable = [
         'coche', 'marca','modelo','ano', 'color','patente', 'chofer',
         'propietario', 'domicilio','localidad', 'tel1','tel2', 'altaAgencia'
