@@ -33,7 +33,8 @@ class CreateClienteTable extends Migration
             $table->string('importe')->nullable();;
             $table->string('precio')->nullable();;
             $table->string('descuento')->nullable();
-            $table->integer('tipo_id');
+            $table->integer('tipo_id')->unsigned();
+            $table->foreign('tipo_id')->references('id')->on('tipos');
             $table->timestamps();
         });
     }

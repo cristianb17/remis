@@ -25,7 +25,6 @@
 			<th>Marca</th>
 			<th>Modelo</th>
 			<th>Patente</th>
-			<th>Chofer</th>
 			<th>Propietario</th>
 			<th>Ver</th>
 			<th>Editar</th>
@@ -36,7 +35,6 @@
 			<td>{{ $auto->marca }}</td>
 			<td>{{ $auto->modelo }}</td>
 			<td>{{ $auto->patente }}</td>
-			<td>{{ $auto->chofer }}</td>
 			<td>{{ $auto->propietario }}</td>
 			<td><a href="{{route('verAuto', ['id' => $auto->id])}}" class="btn btn-primary">Ver</a></td>
 			<td><a href="{{ route('editarAuto', ['id' => $auto->id]) }}" class="btn btn-primary">Editar</a></td>

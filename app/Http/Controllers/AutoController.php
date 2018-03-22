@@ -6,8 +6,6 @@ use App\Auto;
 use App\Chofer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-use CairoException;
-use ErrorException;
 
 class AutoController extends Controller
 {
@@ -23,8 +21,7 @@ class AutoController extends Controller
     
     public function crearAuto()
     {
-        $chofer = Chofer::all();
-        return View::make('autos/auto')->with('choferes', $chofer);
+        return view('autos/auto');
     }
     
     public function listarAutos()
@@ -43,9 +40,8 @@ class AutoController extends Controller
     
     public function editarAuto(Request $request)
     {
-        $chofer = Chofer::all();
         $auto = Auto::find($request['id']);
-        return View::make('autos/editar')->with('auto', $auto) ->with('choferes', $chofer);
+        return View::make('autos/editar')->with('auto', $auto);
         
     }
     
@@ -88,6 +84,11 @@ class AutoController extends Controller
     
     public function eliminarAuto(Request $request)
     {
+        $chofer = Chofer::where('auto_id', $request['id'])->first();
+        if($chofer != null) {
+            $chofer->auto_id = null;
+            $chofer->save();
+        }
         $auto = Auto::find($request['id']);
         $auto->delete();
         $autos = Auto::all();

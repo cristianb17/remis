@@ -25,9 +25,9 @@
 
 	<div class="form-group row">
 		<div class="col-md-6">
-			<label for="example-search-input" class="col-5 col-form-label"><strong>Documento</strong></label>
+			<label for="example-search-input" class="col-5 col-form-label" ><strong>Documento</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="number" name="documento">
+				<input class="form-control" type="number" name="documento" required>
 			</div>
 		</div>
 		<div class="col-md-6">
@@ -156,13 +156,14 @@
 	
 		<div class="col-md-6">
 			<label class="col-4 col-form-label"><strong>Tipo Cliente</strong></label>
-			<div class="col-7">				
-				<select name="tipoCliente" class="form-control">
-                  <option value="1">Cliente Normal</option>
-                  <option value="2">Pool</option>
-                   <option value="3">Empresa</option>
-                </select>
-             </div>
+				<div class="col-7">
+        				<select class="form-control" name="tipos" required>
+    						@foreach($tipos as $tipo)
+    						<option value="{{ $tipo->id }}"> {{ $tipo->descripcion }}</option> 
+    						@endforeach
+    
+    					</select>
+					</div>
 		</div>
 	
 	

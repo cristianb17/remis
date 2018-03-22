@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clientes;
+use App\Tipos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -34,14 +35,16 @@ class ClienteController extends Controller
     
     public function crearCliente()
     {
-        return view('clientes/cliente');
+        $tipos = Tipos::all();
+        return View::make('clientes/cliente')->with('tipos', $tipos);
         
     }
     
     public function editarCliente(Request $request)
     {
+        $tipos = Tipos::all();
         $cliente = Clientes::find($request['id']);
-        return View::make('clientes/editar')->with('cliente', $cliente);
+        return View::make('clientes/editar')->with('cliente', $cliente)->with('tipos', $tipos);
     }
     
     public function ver(Request $request)
@@ -72,7 +75,7 @@ class ClienteController extends Controller
         $cliente->telefono3= $request['tel3'];
         $cliente->telefono4= $request['tel4'];
         $cliente->telefono5= $request['tel5'];
-        $cliente->tipo_id= $request['tipoCliente'];
+        $cliente->tipo_id= $request['tipos'];//clientes
         
         $cliente->save();
         $clientes = Clientes::all();
@@ -101,7 +104,7 @@ class ClienteController extends Controller
         $cliente->telefono3= $request['tel3'];
         $cliente->telefono4= $request['tel4'];
         $cliente->telefono5= $request['tel5'];
-        $cliente->tipo_id= $request['tipoCliente'];
+        $cliente->tipo_id= $request['tipos'];
         $cliente->save();
         $clientes = Clientes::all();
         return View::make('clientes/listarClientes')->with('clientes', $clientes);

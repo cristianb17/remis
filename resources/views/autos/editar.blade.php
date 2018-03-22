@@ -52,21 +52,7 @@
     			</div>
     		</div>
     	</div>
-    
-    	<div class="form-group row">
-    
-    		 <div class="col-md-4">
-    			<label for="example-text-input" class="col-2 col-form-label">Chofer</label> 
-    				<div class="col-8">
-        				<select class="form-control" name="chofer">
-    						@foreach($choferes as $chofer)
-    						<option  {{ $auto->chofer == $chofer->apellido ? 'selected="selected"' : '' }} value="{{ $chofer->apellido }}"> {{ $chofer->nombre }} {{ $chofer->apellido }}</option> 
-    						@endforeach
-    
-    					</select>
-					</div>
-				</div>
-    	</div>
+
 	</div>
 	</br>
 	

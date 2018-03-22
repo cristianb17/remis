@@ -5,6 +5,13 @@
 	<div class="form-group row">
 		<h1>DATOS DEL CHOFER</h1>
 	</div>
+		@if($errors->any())
+       <ul class="alert alert-danger">
+          @foreach ($errors->all() as $error)
+               <li >{{ $error }}</li>
+           @endforeach
+        </ul>
+	@endif 
        <form method="post" action="{{ route('actualizarChofer') }}">
                         @csrf
 		<input class="form-control"  type="hidden" name="id" value="{{$chofer->id}}">
@@ -117,7 +124,23 @@
 				<input class="form-control" type="number"  value="{{$chofer->saldoCuentaCorriente}}" name="saldoCuentaCorriente">
 			</div>
 		</div>
+		
+			<div class="col-md-6">
+    			<label for="example-text-input" class="col-2 col-form-label"><strong>Autos</strong></label> 
+    				<div class="col-7">
+        				<select class="form-control" name="auto">
+    						@foreach($autos as $auto)
+    							
+    						<option value="{{ $auto->id }}" {{$chofer->auto_id == $auto->id ? 'selected' : '' }} > {{ $auto->coche }}</option> 
+    						@endforeach
+    
+    					</select>
+					</div>
+				</div>
 	</div>
+	
+    
+    	
 	<div class="form-group row mb-0">
 		<div class="col-md-8 offset-md-4">
 			<button type="submit" class="btn btn-primary btn-lg">Actualizar</button>

@@ -5,6 +5,13 @@
 	<div class="form-group row">
 		<h1>DATOS DEL CHOFER</h1>
 	</div>
+	@if($errors->any())
+       <ul class="alert alert-danger">
+          @foreach ($errors->all() as $error)
+               <li >{{ $error }}</li>
+           @endforeach
+        </ul>
+	@endif 
        <form method="POST" action="{{ route('guardarChofer') }}">
                         @csrf
 
@@ -116,7 +123,30 @@
 				<input class="form-control" type="number" name="saldoCuentaCorriente">
 			</div>
 		</div>
+		
+			<div class="col-md-6">
+			<label for="example-date-input" class="col-5 col-form-label"><strong>Saldo
+					cuenta corriente</strong></label>
+			<div class="col-7">
+				<input class="form-control" type="number" name="saldoCuentaCorriente">
+			</div>
+		</div>
 	</div>
+	
+	   <div class="form-group row">
+    
+    		<div class="col-md-4">
+    			<label for="example-text-input" class="col-2 col-form-label">Autos</label> 
+    				<div class="col-8">
+        				<select class="form-control" name="auto">
+    						@foreach($autos as $auto)
+    						<option value="{{ $auto->id }}"> {{ $auto->coche }}</option> 
+    						@endforeach
+    
+    					</select>
+					</div>
+				</div>
+    	</div>
 	<div class="form-group row mb-0">
 		<div class="col-md-8 offset-md-4">
 			<button type="submit" class="btn btn-primary btn-lg">Ingresar Chofer</button>

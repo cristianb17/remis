@@ -15,20 +15,22 @@ class CreateChoferTable extends Migration
     {
         Schema::create('chofers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre')->nullable();;
-            $table->string('apellido')->nullable();;
+            $table->string('nombre')->nullable();
+            $table->string('apellido')->nullable();
             $table->integer('documento')->unique();
-            $table->string('domicilio')->nullable();;
-            $table->string('localidad')->nullable();;
-            $table->string('cp')->nullable();;
-            $table->string('telefono')->nullable();;
-            $table->date('fechaNacimiento')->nullable();;
-            $table->string('celular')->nullable();;
-            $table->date('vencimientoRegistro')->nullable();;
-            $table->date('ingresoAgencia')->nullable();;
-            $table->string('previsionMulta')->nullable();;
+            $table->string('domicilio')->nullable();
+            $table->string('localidad')->nullable();
+            $table->string('cp')->nullable();
+            $table->string('telefono')->nullable();
+            $table->date('fechaNacimiento')->nullable();
+            $table->string('celular')->nullable();
+            $table->date('vencimientoRegistro')->nullable();
+            $table->date('ingresoAgencia')->nullable();
+            $table->string('previsionMulta')->nullable();
             $table->string('saldoCuentaCorriente')->nullable();
-            $table->string('estado')->nullable();;
+            $table->string('estado')->nullable();
+            $table->integer('auto_id')->unsigned()->nullable();
+            $table->foreign('auto_id')->references('id')->on('autos');
             $table->rememberToken();
             $table->timestamps();
         });
