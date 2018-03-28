@@ -13,7 +13,7 @@
 		<div class="col-md-6">
 			<label for="example-text-input" class="col-5 col-form-label"><strong>Dia y Hora del viajes</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="datetime-local" name="diaHoraViaje">
+				<input class="form-control" type="datetime-local" name="diaHoraViaje" autofocus>
 			</div>
 		</div>
 		<div class="col-md-6">

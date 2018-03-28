@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Reserva;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
@@ -64,10 +65,11 @@ class GestionReservaController extends Controller
         $reserva->hastaRepeticion= $request['hastaRepeticion'];
         $reserva->repetir= $request['repetir'];
         $reserva->minutoPreaviso= $request['minutoPreaviso'];
+        $reserva->estado='0';
+        
         $reserva->save();
         
-        $reserva = Reserva::all();
-        return View::make('home')->with('reservas', $reserva);
+        return redirect()->route('home');
     }
     
     public function actualizarReserva(Request $request)
@@ -97,16 +99,17 @@ class GestionReservaController extends Controller
         $reserva->hastaRepeticion= $request['hastaRepeticion'];
         $reserva->repetir= $request['repetir'];
         $reserva->minutoPreaviso= $request['minutoPreaviso'];
+        
         $reserva->save();
     
         $reserva = Reserva::all();
-        return View::make('home')->with('reservas', $reserva);
+        return View::make('reservas/listar')->with('reservas', $reserva);
     }
     
     public function listarReservas()
     {
         $reservas = Reserva::all();
-        return View::make('home')->with('reservas', $reservas);
+        return View::make('reservas/listar')->with('reservas', $reservas);
         
     }
     
@@ -115,7 +118,7 @@ class GestionReservaController extends Controller
         $reserva = Reserva::find($request['id']);
         $reserva->delete();
         $reserva = Reserva::all();
-        return View::make('home')->with('reservas', $reserva);
+        return View::make('reservas/listar')->with('reservas', $reserva);
         
     }
     
@@ -131,10 +134,10 @@ class GestionReservaController extends Controller
         
         if($request['dato'] == ''){
             $reservas = Reserva::all();
-            return View::make('home')->with('reservas', $reservas);
+            return View::make('reservas/listar')->with('reservas', $reservas);
         }
         $reservas = Reserva::where('desde', $request['dato'])->orWhere('hasta', 'like', $request['dato'])->get();
-        return View::make('home')->with('reservas', $reservas);
+        return View::make('reservas/listar')->with('reservas', $reservas);
         
     }
 }

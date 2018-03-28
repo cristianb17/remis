@@ -3,56 +3,67 @@
 
 
 	<div class="form-group row">
-		<h1>Listado de Reservas</h1>
+		<h1>Administracion de Reservas</h1>
 	</div>
 	
-	 <p>
-   		 <a href="{{ route('ingresarReserva') }}" class="btn btn-primary">Ingresar una nueva Reserva</a>
-  	</p>
-  	
-  		<p></p>
-	<form method="get" action="{{ route('buscarReserva') }}">
-        <div class="input-group">
-          <input type="text" class="form-control col-2" name="dato">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">Buscar</button>
-          </span>
-        </div>
-    </form>
-	
-     <table class="table table-striped">
+	 <div class="form-group row">
+		<div class="col-md-6">
+			<div class="col-8">
+				     <table class="table table-striped">
         <tr>
-			<th>Dia y Hora del viaje</th>
-			<th>Aviso Depachador</th>
-			<th>Desde</th>
-			<th>Hasta</th>
-			<th>Numero</th>
-			<th>Ver</th>
-			<th>Editar</th>
-			<th>Eliminar</th>
+			<th>Coche</th>
+			<th>Ult. Destino</th>
+			<th>Hora</th>
+			<th>Ida</th>
 		</tr>
-        @foreach ($reservas as $reserva)
+        @foreach ($autos as $auto)
         <tr>
-			<td><input class="form-control" type="datetime-local" value="{{ $reserva->diaHoraViaje }}" disabled></td>
-			<td><input  class="form-control" type="datetime-local" value="{{ $reserva->avisoDespachador }}" disabled></td>
-			<td>{{ $reserva->desde }}</td>
-			<td>{{ $reserva->hasta }}</td>
-			<td>{{ $reserva->numero }}</td>
-			<td><a href="{{route('verReserva', ['id' => $reserva->id])}}" class="btn btn-primary">Ver</a></td>
-			<td><a href="{{ route('editarReserva', ['id' => $reserva->id]) }}" class="btn btn-primary">Editar</a></td>
-			<td><a href="{{ route('eliminarReserva', ['id' => $reserva->id]) }}" class="btn btn-primary">Eliminar</a></td>
+			<td>{{ $auto->id }}</td>
+			<td>{{ $auto->id }}</td>
+			<td>{{ $auto->id }}</td>
+			<td>{{ $auto->id }}</td>
 		</tr>
 		
         @endforeach
       </table>
-  
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<label for="example-text-input" class="col-5 col-form-label"><strong>Aviso al Despachador</strong></label>
+			<div class="col-6">
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<div class="col-md-12">
+			<div class="col-12">
+				     <table class="table table-striped">
+        <tr>
+        	<th>Num</th>
+			<th>Dia y Hora del viaje</th>
+			<th>Desde</th>
+			<th>Hasta</th>
+			<th>Numero</th>
+		</tr>
+
+        @foreach ($reservas as $reserva)
+        <tr>
+    	    <td>{{$loop->iteration}}</td>
+			<td><input class="form-control" type="datetime-local" value="{{date('Y-m-d\TH:i:s', strtotime($reserva->diaHoraViaje))}}" disabled></td>
+			<td>{{ $reserva->desde }}</td>
+			<td>{{ $reserva->hasta }}</td>
+			<td>{{ $reserva->numero }}</td>
+		</tr>
+		
+        @endforeach
+      </table>
+			</div>
+		</div>
+	</div>
+	
+	
 
 </div>
-
-
-<script>
-window.onload = function() {
-   document.getElementById("nombre").focus();
-}
-</script>
 @endsection

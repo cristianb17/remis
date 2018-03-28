@@ -16,7 +16,7 @@ class Auto extends Model
         'propietario', 'domicilio','localidad', 'tel1','tel2', 'altaAgencia'
         , 'vencPoliza', 'vencGNC', 'vencPagoSeg', 'vencHabAuto', 'gasolero'
         , 'aire', 'odometro', 'radio', 'odometroDatosFac', 'radioDatosFact', 'celular'
-        , 'lavadero', 'alquiler', 'previsionMultas'
+        , 'lavadero', 'alquiler', 'previsionMultas', 'estado'
         
     ];
 }

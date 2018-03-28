@@ -42,6 +42,7 @@ class CreateAutosTable extends Migration
             $table->boolean('lavadero');
             $table->boolean('alquiler');
             $table->boolean('previsionMultas');
+            $table->boolean('estado');
             $table->timestamps();
         });
     }

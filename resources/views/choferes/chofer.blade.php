@@ -155,10 +155,4 @@
 </form>
 </div>
 
-
-<script>
-window.onload = function() {
-   document.getElementById("nombre").focus();
-}
-</script>
 @endsection

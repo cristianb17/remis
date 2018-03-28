@@ -15,7 +15,7 @@
 		<div class="col-md-6">
 			<label for="example-text-input" class="col-5 col-form-label"><strong>Dia y Hora del viajes</strong></label>
 			<div class="col-7">
-				<input class="form-control" type="datetime-local" name="diaHoraViaje"   value="{{$reserva->diaHoraViaje}}">
+				<input class="form-control" type="datetime-local" name="diaHoraViaje"  value="{{date('Y-m-d\TH:i:s', strtotime($reserva->diaHoraViaje))}}">
 			</div>
 		</div>
 		<div class="col-md-6">

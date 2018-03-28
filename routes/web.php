@@ -55,13 +55,14 @@ Route::get('/buscarCliente', 'ClienteController@buscarCliente')->name('buscarCli
 
 //Reservas
 Route::get('/ingresarReserva', 'GestionReservaController@ingresarReserva')->name('ingresarReserva');
-Route::post('/crearReserva', 'GestionReservaController@crearReserva')->name('crearReserva');
+Route::post('/home', 'GestionReservaController@crearReserva')->name('crearReserva');
 Route::get('/ver', 'GestionReservaController@verReserva')->name('verReserva');
 Route::get('/eliminar', 'GestionReservaController@eliminarReserva')->name('eliminarReserva');
 Route::get('/editarReserva', 'GestionReservaController@editarReserva')->name('editarReserva');
 Route::post('/listarReservas', 'GestionReservaController@listarReservas')->name('listarReservas');
 Route::post('/actualizarReserva', 'GestionReservaController@actualizarReserva')->name('actualizarReserva');
 Route::get('/buscarReserva', 'GestionReservaController@buscarReserva')->name('buscarReserva');
+Route::get('/listarReservas', 'GestionReservaController@listarReservas')->name('listarReservas');
 
 //Liquidacion
 Route::get('/liquidarChofer', 'LiquidacionController@verLiquidacion')->name('liquidarChofer');

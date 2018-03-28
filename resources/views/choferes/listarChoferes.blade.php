@@ -29,7 +29,6 @@
 			<th>Eliminar</th>
 			<th>Estado</th>
 			<th>Activar/Desactivar</th>
-			<th>Liquidacion</th>	
 		</tr>
         @foreach ($choferes as $chofer)
         <tr>
@@ -49,7 +48,6 @@
     				@if($chofer->estado == 1)
     				<td>Trabajando</td>
 					<td><a href="{{ route('activarChofer', ['id' => $chofer->id]) }}" class="btn btn-primary">Desactivar</a></td>	
-    				<td><a href="{{ route('liquidarChofer', ['id' => $chofer->id]) }}" class="btn btn-danger">Liquidar</a></td>
     			@endif
     			@if($chofer->estado == 1)
     			@endif

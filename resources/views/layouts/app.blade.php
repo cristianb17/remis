@@ -31,7 +31,8 @@
                             <a class="dropdown-item" href="{{ route('listarClientes') }}">Listar Clientes</a>
                             <a class="dropdown-item" href="{{ route('listarChoferes') }}">Listar Choferes</a>
                             <a class="dropdown-item" href="{{ route('listarAutos') }}">Listar Autos</a>
-                            <a class="dropdown-item" href="{{ route('ingresarReserva') }}">Ingresar Reserva</a>                 
+                            <a class="dropdown-item" href="{{ route('listarReservas') }}">Listar Reserva</a>                 
+                                           
                       </div>
            	 	</div>
                    <a class="btn btn-success  offset-1" href="{{ route('home') }}" role="button">Pagina Principal</a>
@@ -79,5 +80,27 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+
+	function operaEvento(e){
+		var teclaF2 = '113';
+		var teclaF4 = '115';
+		
+	    var evt = e ? e : event;
+	    var key = window.Event ? evt.which : evt.keyCode;
+	    if(key == teclaF2) 
+    	window.location.href = "{{ route('ingresarReserva') }}";
+		
+	    if(key == teclaF4)
+	    	window.location.href = "{{ route('home') }}";
+
+		}
+	
+	$(document).ready(function(){
+		   $(document).keydown(operaEvento);
+		})
+	 
+	</script>
 </body>
+
 </html>

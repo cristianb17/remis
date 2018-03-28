@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -48,7 +49,9 @@ class ChoferController extends Controller
     
     public function crearChofer()
     {
-        $autos = Auto::all();
+        $autos = DB::table('autos') ->whereNotIn('id', function($query){
+                 $query->select('auto_id')->from('chofers');})->get();
+        
         return View::make('choferes/chofer')->with('autos', $autos);
         
     }
@@ -142,12 +145,17 @@ class ChoferController extends Controller
     public function activarChofer(Request $request)
     {
         $chofer = Chofer::find($request['id']);
-        if($chofer->estado == 0)
+        $auto = Auto::find($chofer->auto_id);
+       
+        if($chofer->estado == 0) {
             $chofer->estado = '1';
-        else 
+            $auto->estado = '1';
+        } else {
+            $auto->estado = '0';
             $chofer->estado = '0';
-            
+        }
         $chofer->save();
+        $auto->save();
         $choferes = Chofer::all();
         return View::make('choferes/listarChoferes')->with('choferes', $choferes);
     }

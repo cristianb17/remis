@@ -134,7 +134,6 @@ class AutoController extends Controller
         $auto->lavadero = $request['lavadero'];
         $auto->alquiler = $request['alquiler'];
         $auto->previsionMultas = $request['previsionMultas'];
-        
         $auto->save();
         $autos = Auto::all();
         return View::make('autos/listarAutos')->with('autos', $autos);

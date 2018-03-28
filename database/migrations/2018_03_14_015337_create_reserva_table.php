@@ -15,7 +15,7 @@ class CreateReservaTable extends Migration
     {
         Schema::create('reservas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('diaHoraViaje')->nullable();
+            $table->dateTime('diaHoraViaje')->nullable();
             $table->string('avisoDespachador')->nullable();;
             $table->string('desde')->nullable();;
             $table->string('hasta')->nullable();;
@@ -40,6 +40,8 @@ class CreateReservaTable extends Migration
             $table->string('viernes')->nullable();
             $table->string('sabado')->nullable();
             $table->string('domingo')->nullable();
+            
+            $table->boolean('estado')->nullable();
             
             $table->timestamps();
         });
