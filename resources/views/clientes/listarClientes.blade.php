@@ -18,7 +18,7 @@
           </span>
         </div>
     </form>
-     <table class="table table-striped">
+     <table class="table table-striped table-sm ">
         <tr>
 			<th>Nombre</th>
 			<th>Apellido</th>

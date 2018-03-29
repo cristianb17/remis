@@ -20,7 +20,7 @@
         </div>
     </form>
 	
-     <table class="table table-striped">
+     <table class="table table-striped table-sm ">
         <tr>
         	<th>Numero</th>
 			<th>Marca</th>

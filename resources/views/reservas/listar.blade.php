@@ -20,7 +20,7 @@
         </div>
     </form>
 	
-     <table class="table table-striped">
+     <table class="table table-striped table-sm ">
         <tr>
 			<th>Dia y Hora del viaje</th>
 			<th>Aviso Depachador</th>

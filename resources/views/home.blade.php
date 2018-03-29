@@ -1,4 +1,5 @@
 @extends('layouts.app') @section('content')
+
 <div class="container">
 
 
@@ -7,21 +8,25 @@
 	</div>
 	
 	 <div class="form-group row">
-		<div class="col-md-6">
-			<div class="col-8">
-				     <table class="table table-striped">
+		<div class="col-md-4">
+			<div class="col-12">
+				     <table class="table table-striped table-sm">
         <tr>
 			<th>Coche</th>
 			<th>Ult. Destino</th>
 			<th>Hora</th>
-			<th>Ida</th>
+			<th>Tipo</th>
 		</tr>
         @foreach ($autos as $auto)
         <tr>
 			<td>{{ $auto->id }}</td>
-			<td>{{ $auto->id }}</td>
-			<td>{{ $auto->id }}</td>
-			<td>{{ $auto->id }}</td>
+			<td>{{ $auto->ultimoDestino }}</td>
+			<td>{{ $auto->horaUltimoDestino }}</td>
+			@if($auto->tipoUltimoDestino == 1)
+				<td>IDA</td>
+			@else
+				<td>C/ Regreso</td>
+			@endif
 		</tr>
 		
         @endforeach
@@ -29,42 +34,81 @@
 			</div>
 		</div>
 
-		<div class="col-md-6">
-			<label for="example-text-input" class="col-5 col-form-label"><strong>Aviso al Despachador</strong></label>
-			<div class="col-6">
+		<div class="col-md-8">
+					<div class="col-md-12">
+			<div class="col-12">
+				     <table class="table table-striped table-sm ">
+        <tr>
+			<th>Coche</th>
+			<th>Desde</th>
+			<th>Numero</th>
+			<th>Piso</th>
+			<th>Hora</th>
+			<th>Hasta</th>
+			<th>Tipo</th>
+			<th>Observaciones</th>
+		</tr>
+        @foreach ($reservasAsignadas as $reservaAsig)
+        <tr>
+        	<td>{{ $reservaAsig->auto }}</td>
+			<td>{{ $reservaAsig->desde }}</td>
+			<td>{{ $reservaAsig->numero }}</td>
+			<td>{{ $reservaAsig->piso }}</td>
+			<td>{{ $reservaAsig->diaHoraViaje }}</td>
+			<td>{{ $reservaAsig->hasta }}</td>
+			@if($reservaAsig->tipo == 1)
+				<td>IDA</td>
+			@else
+				<td>C/ Regreso</td>
+			@endif
+			<td>{{ $reservaAsig->observaciones }}</td>
+		</tr>
+		
+        @endforeach
+      </table>
 			</div>
+		</div>
 		</div>
 	</div>
 	
 	<div class="form-group row">
 		<div class="col-md-12">
 			<div class="col-12">
-				     <table id="tabla" class="table table-striped">
-        <tr>
-        	<th>Num</th>
-			<th>Dia y Hora del viaje</th>
-			<th>Desde</th>
-			<th>Hasta</th>
-			<th>Numero</th>
-		</tr>
-
-        @foreach ($reservas as $reserva)
-        <tr id="{{$reserva->id}}">
-    	    <td>{{ $loop->iteration }}</td>
-			<td><input class="form-control" type="datetime-local" value="{{date('Y-m-d\TH:i:s', strtotime($reserva->diaHoraViaje))}}" disabled></td>
-			<td>{{ $reserva->desde }}</td>
-			<td>{{ $reserva->hasta }}</td>
-			<td>{{ $reserva->numero }}</td>
-		</tr>
-		
-        @endforeach
-      </table>
+            	<table id="tabla" class="table table-striped table-sm">
+                    <tr>
+                    	<th>Num</th>
+            			<th>Desde</th>
+            			<th>Numero</th>
+            			<th>Piso</th>
+            			<th>Hora</th>
+            			<th>Hasta</th>
+            			<th>Tipo</th>
+            			<th>Observaciones</th>
+            		</tr>
+            
+                    @foreach ($reservas as $reserva)
+                    <tr id="{{$reserva->id}}">
+                	    <td>{{ $loop->iteration }}</td>
+                	    <td>{{ $reserva->desde }}</td>
+                	    <td>{{ $reserva->numero }}</td>
+                	    <td>{{ $reserva->piso }}</td>
+                	    <td>{{ $reserva->diaHoraViaje }}</td>
+                	    <td>{{ $reserva->hasta }}</td>
+                	    @if($reserva->tipo == 1)
+            				<td>IDA</td>
+            			@else
+            				<td>C/ Regreso</td>
+            			@endif
+            			<td>{{ $reserva->observaciones }}</td>
+            			
+            		</tr>
+            		
+                    @endforeach
+                 </table>
 			</div>
 		</div>
 	</div>
 	
-	
-
 </div>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -123,29 +167,33 @@
 	    var evt = e ? e : event;
 	    var key = window.Event ? evt.which : evt.keyCode;
 		var idRow = '';
-
+		var URL = "http://localhost:82/remis/public/asignarReserva?idReserva=";
+    	var a = document.getElementById('link');
+		
         	switch (key.toString()) {
             	    case tecla1:
-            	    	var a = document.getElementById('link'); //or grab it by tagname etc
 						idRow = document.getElementById("tabla").rows[1].id;
-	            	    a.href = "http://localhost:82/remis/public/asignarReserva?idReserva="+idRow;
-	   						 
+	            	    a.href = URL + idRow;	 
             	    	$("#myModal").modal();
             	        break;
             	    case tecla2:
 						 idRow = document.getElementById("tabla").rows[2].id;
+		            	 a.href = URL + idRow; 
             	    	$("#myModal").modal();
             	        break;
             	    case tecla3:
 						 idRow = document.getElementById("tabla").rows[3].id;
+		            	 a.href = URL + idRow; 
             	    	$("#myModal").modal();
             	        break;
             	    case tecla4:
-						var idRow = document.getElementById("tabla").rows[4].id;
+						 idRow = document.getElementById("tabla").rows[4].id;
+		            	 a.href = URL + idRow; 
             	    	$("#myModal").modal();
             	        break;
             	    case tecla5:
 						 idRow = document.getElementById("tabla").rows[5].id;
+		            	 a.href = URL + idRow; 
             	    	$("#myModal").modal();
             	        break;
     		}

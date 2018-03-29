@@ -43,18 +43,13 @@ class CreateAutosTable extends Migration
             $table->boolean('alquiler');
             $table->boolean('previsionMultas');
             $table->boolean('estado');
+            $table->datetime('ultimoDestino');
+            $table->datetime('horaUltimoDestino');
+            $table->integer('tipoUltimoDestino');
             $table->timestamps();
         });
     }
-
-    public  $fillable = [
-        'coche', 'marca','modelo','ano', 'color','patente', 'chofer',
-        'propietario', 'domicilio','localidad', 'tel1','tel2', 'altaAgencia'
-        , 'vencPoliza', 'vencGNC', 'vencPagoSeg', 'vencHabAuto', 'gasolero'
-        , 'aire', 'odometro', 'radio', 'odometroDatosFac', 'radioDatosFact', 'celular'
-        , 'lavadero', 'alquiler', 'previsionMultas'
-        
-    ];
+    
     /**
      * Reverse the migrations.
      *

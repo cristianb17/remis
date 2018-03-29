@@ -66,6 +66,7 @@ class GestionReservaController extends Controller
         $reserva->repetir= $request['repetir'];
         $reserva->minutoPreaviso= $request['minutoPreaviso'];
         $reserva->estado='0';
+        $reserva->auto='0';
         
         $reserva->save();
         
@@ -113,10 +114,12 @@ class GestionReservaController extends Controller
         
     }
     
-    public function asignarReserva()
+    public function asignarReserva(Request $request)
     {
-        $reservas = Reserva::all();
-        return View::make('reservas/listar')->with('reservas', $reservas);
+        $reserva = Reserva::find($request['idReserva']);
+        $reserva->auto = $request['autoID'];
+        $reserva->save();
+        return redirect()->route('home');
         
     }
     
