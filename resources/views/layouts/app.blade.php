@@ -89,7 +89,7 @@
 	    var evt = e ? e : event;
 	    var key = window.Event ? evt.which : evt.keyCode;
 	    if(key == teclaF2) 
-    	window.location.href = "{{ route('ingresarReserva') }}";
+    		window.location.href = "{{ route('ingresarReserva') }}";
 		
 	    if(key == teclaF4)
 	    	window.location.href = "{{ route('home') }}";
@@ -98,6 +98,7 @@
 	
 	$(document).ready(function(){
 		   $(document).keydown(operaEvento);
+			$(document).keydown(seleccion);
 		})
 	 
 	</script>

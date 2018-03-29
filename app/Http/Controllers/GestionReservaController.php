@@ -113,6 +113,13 @@ class GestionReservaController extends Controller
         
     }
     
+    public function asignarReserva()
+    {
+        $reservas = Reserva::all();
+        return View::make('reservas/listar')->with('reservas', $reservas);
+        
+    }
+    
     public function eliminarReserva(Request $request)
     {
         $reserva = Reserva::find($request['id']);
