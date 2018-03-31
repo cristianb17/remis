@@ -42,6 +42,7 @@ class CreateReservaTable extends Migration
             $table->string('domingo')->nullable();
             
             $table->boolean('estado')->nullable();
+            $table->float('montoReal')->nullable();
             
             $table->timestamps();
         });

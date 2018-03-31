@@ -64,6 +64,8 @@ Route::post('/actualizarReserva', 'GestionReservaController@actualizarReserva')-
 Route::get('/buscarReserva', 'GestionReservaController@buscarReserva')->name('buscarReserva');
 Route::get('/listarReservas', 'GestionReservaController@listarReservas')->name('listarReservas');
 Route::get('/asignarReserva', 'GestionReservaController@asignarReserva')->name('asignarReserva');
+Route::get('/cerrarReserva', 'GestionReservaController@cerrarReserva')->name('cerrarReserva');
+
 
 //Liquidacion
 Route::get('/liquidarChofer', 'LiquidacionController@verLiquidacion')->name('liquidarChofer');

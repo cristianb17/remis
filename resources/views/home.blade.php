@@ -46,7 +46,9 @@
 			<th>Hora</th>
 			<th>Hasta</th>
 			<th>Tipo</th>
-			<th>Observaciones</th>
+			<th>Observaciones</th>	
+			<th>Accion</th>	
+			
 		</tr>
         @foreach ($reservasAsignadas as $reservaAsig)
         <tr>
@@ -57,11 +59,13 @@
 			<td>{{ $reservaAsig->diaHoraViaje }}</td>
 			<td>{{ $reservaAsig->hasta }}</td>
 			@if($reservaAsig->tipo == 1)
-				<td>IDA</td>
+				<td>ida</td>
 			@else
-				<td>C/ Regreso</td>
+				<td>c/regreso</td>
 			@endif
 			<td>{{ $reservaAsig->observaciones }}</td>
+			<td><button id="linkCerrarReserva" class="btn btn-primary btn-sm" onclick="abrirModal('{{ route('cerrarReserva', ['id' => $reservaAsig->id,'autoID' => $reservaAsig->auto]) }}')">Cerrar</button></td>
+			
 		</tr>
 		
         @endforeach
@@ -95,11 +99,11 @@
                 	    <td>{{ $reserva->diaHoraViaje }}</td>
                 	    <td>{{ $reserva->hasta }}</td>
                 	    @if($reserva->tipo == 1)
-            				<td>IDA</td>
+            				<td>ida</td>
             			@else
-            				<td>C/ Regreso</td>
+            				<td>c/Regreso</td>
             			@endif
-            			<td>{{ $reserva->observaciones }}</td>
+            			 <td>{{ $reserva->observaciones }}</td>
             			
             		</tr>
             		
@@ -142,11 +146,42 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
-
   </div>
 </div>
 
+
+ <div id="cerrarReservaModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+        <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Ingrese monto real de la reserva...</h4>
+      </div>
+      <div class="modal-body">
+        	   <div class="form-group row">
+    
+    		<div class="col-md-10">
+    			<label for="example-text-input" class="col-2 col-form-label">Ingrese Monto:</label> 
+    				<div class="col-8">
+        				<input class="form-control" type="text" id="montoReal" name="montoReal" autofocus>
+					</div>
+				</div>
+    	</div>
+      </div>
+      <div class="modal-footer">
+         <a href="" id="linkReserva" class="btn btn-primary" onclick="cerrarReserva()">Aceptar</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+   </div>
+    </div>
 <script>
+
+	function cerrarReserva() {
+   		var url = document.getElementById('linkReserva');
+   		url.href = url.href + document.getElementById('montoReal').value;
+   		alert(url.href);
+	}
 
     function agregarAuto(valor){
     	var a = document.getElementById('link');
@@ -156,6 +191,12 @@
         	url = url.substring(0,posicionAcortar);
 	    a.href = url + '&autoID=' + valor.value ;
     }
+
+    function abrirModal(urlReserva){
+    	var a = document.getElementById('linkReserva');
+    	a.href = urlReserva + "&montoReal=";
+    	$("#cerrarReservaModal").modal();
+    }
 	
 	function seleccion(e){	
 		var tecla1 = "49";
@@ -163,13 +204,19 @@
 		var tecla3 = "51";
 		var tecla4 = "52";
 		var tecla5 = "53";
+		var teclaF7 = "118";
 		
 	    var evt = e ? e : event;
 	    var key = window.Event ? evt.which : evt.keyCode;
 		var idRow = '';
 		var URL = "http://localhost:82/remis/public/asignarReserva?idReserva=";
-    	var a = document.getElementById('link');
 		
+    	var a = document.getElementById('link');
+
+    	if($("#cerrarReservaModal").is(':visible')) {
+			return;
+    	}
+        	
         	switch (key.toString()) {
             	    case tecla1:
 						idRow = document.getElementById("tabla").rows[1].id;
@@ -196,6 +243,10 @@
 		            	 a.href = URL + idRow; 
             	    	$("#myModal").modal();
             	        break;
+            	    case teclaF7:
+		            	 a.href = "http://localhost:82/remis/public/liquidarChofer?idAuto=";
+           	    	$("#myModal").modal();
+           	        break;
     		}
 		
 		}

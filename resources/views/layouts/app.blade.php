@@ -35,8 +35,7 @@
                                            
                       </div>
            	 	</div>
-                   <a class="btn btn-success  offset-1" href="{{ route('home') }}" role="button">Pagina Principal</a>
-
+				<div style="background-color: blue; color:white"><b>[ F2 = Ingresar Reserva ] - [ Tecla 1 al 5 asignar reserva ] - [ F4 = Administrar Reservas ]- [ F7 = Liquidar]</b></div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
+use DateTime;
+use App\Auto;
 
 class GestionReservaController extends Controller
 {
@@ -105,6 +107,25 @@ class GestionReservaController extends Controller
     
         $reserva = Reserva::all();
         return View::make('reservas/listar')->with('reservas', $reserva);
+    }
+    
+    public function cerrarReserva(Request $request)
+    {
+        $now = new DateTime();
+        $now->format('Y-m-d H:i:s'); 
+
+        $reserva = Reserva::find($request['id']);
+        $reserva->estado = 1;
+        
+        $auto = Auto::find($request['autoID']);
+        $auto->ultimoDestino = $reserva->desde;
+        $auto->horaUltimoDestino = $now;
+        $auto->tipoUltimoDestino = $reserva->tipo;
+        
+        $auto->save();
+        $reserva->save();
+        
+        return redirect()->route('home');
     }
     
     public function listarReservas()
